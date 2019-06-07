@@ -1,5 +1,34 @@
 # Biotics (Remastered)
 
+## Game
+### Triggers and Actions
+#### Triggers
+
+IF IS (COLOR/STRONG/WEAK/NEAR/FOOD)
+	
+IF Hungry/ReadyToReproduce/LOWHP
+
+IF ALWAYS
+
+#### Actions
+
+KILL - Uses 3 
+
+SPLIT - Splits your food and births a new biotic
+
+FOLLOW - Follows Selected Biotic
+
+RUNAWAY - Moves away from Selected Biotic, 
+
+WANDER - Randomly Moves around
+
+DIE  - Kills yourself
+
+CONTROL - Copies over your DNA to the target Biotic
+
+COLLECT - COLLECTS NEARBY FOOD
+
+
 ## Networking
 
 
@@ -16,13 +45,13 @@ Each ```If``` element corresponds to a ```then``` element, except the last eleme
 #### Example
 ```
 {
-"IF" : ["NOBIOTICNEARBY HUNGRY","BIOTICNEARBY"],
+"IF" : ["NOBIOTICNEARBY HUNGRY","BIOTICNEARBY IS:BLUE"],
 "THEN" : ["SEARCHFOOD","ATTACK","WANDER"]
 }
 ```
 If there is ```No Biotics Nearby``` and is ```HUNGRY``` then it will ```Search For Food```
 
-Else if there are 	```Biotics Nearby```, than it will ```ATTACK```
+Else if there are 	```Biotics Nearby``` and if any of them are ```blue```, than it will ```ATTACK``` the ```BLUE``` biotic.
 
 else the biotic will ```WANDER```
 
