@@ -1,0 +1,58 @@
+body{
+  font: 15px/1.5 Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background: url(../images/blackTile.jpg);
+  background-size: 20% 20%;
+  width: 100%;
+  height: 100%;
+}
+#interface{
+  color: #74F131;
+  opacity: 0.9;
+  width: 70%;
+  height: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2.5%;
+  margin-bottom: 3.5%;
+  background-image: linear-gradient(to right, #212121, #6E6E6E, #969696, #969696, #969696, #6E6E6E, #212121);
+  /*light grey: #F0F8FF
+  murky grey: #E9E2FF*/
+  border-radius: 30px;
+}
+.arg{
+  margin-left: 10%;
+  width: 100%;
+  height: 9%
+}
+#trigger{
+  display: inline-block; margin-right: 70px;
+}
+#action{
+  display: inline-block;
+}
+.argument{
+  padding-left: 1.5%;
+  padding-bottom: 1%;
+  width: auto;
+  height: 65%;
+  color: black;
+  font-size: 40px;
+  background-color: white;
+  border-radius: 5px;
+}
+#header{
+  margin: 10%;
+  /*padding-left: 10px;*/
+  text-align: center;
+  background-color: #567645;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+button{
+}
+#buttonPosition{
+  margin-left: 43%;
+  margin-top: 10px;
+}
