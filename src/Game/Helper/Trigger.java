@@ -1,6 +1,7 @@
 package Game.Helper;
 
 import Game.Biotic;
+import Game.Settings;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -9,11 +10,20 @@ public class Trigger{
 
    private String trigger;
 
+   public Trigger(String trigger){
+      this.trigger = trigger;
+   }
 
-
+   /**
+    * @param currentBiotic
+    * @param otherBioticList
+    * @return
+    */
    //Returns whether a given Biotic matches the parameters
-   public boolean equals(Biotic currentBiotic, Biotic otherBiotic) {
+   public ArrayList<Biotic> filter(Biotic currentBiotic, ArrayList<Biotic> otherBioticList) {
       ArrayList<String> triggers = new ArrayList<>();
+
+      ArrayList<Biotic> filteredBiotics = new ArrayList<>();
 
       //Separates Tokens with a underscore (_)
       StringTokenizer andTokens = new StringTokenizer(trigger, "_");
@@ -25,29 +35,35 @@ public class Trigger{
 
       //Goes through the AND statements
       for (String property : triggers) {
-
-         //Checks if an IF
-         StringTokenizer tokenizer = new StringTokenizer(property, ":");
-         String token = tokenizer.nextToken();
-         if (token.equals("IS"))
-
-            //Check for Color Here
-
-            //Will Run against properties of other biotic
-            switch (tokenizer.nextToken()) {
-               //Check the IS statement to see if true for which in the list.
-               //If False, return false, if true, don't do anything
-
-               //Example
+         //Goes Through the List of Biotics
+         for (Biotic otherBiotic : otherBioticList) {
+            //Checks if it is within vision
+            if(currentBiotic.distance(otherBiotic) > Settings.VISION_RADIUS){
+               continue;
             }
-         else {
-            //Test about self properties
-            switch (token) {
-               //If it is true, return the other biotic list, else return a blank list
+            //Checks if an IF
+            StringTokenizer tokenizer = new StringTokenizer(property, ":");
+            String token = tokenizer.nextToken();
+            if (token.equals("IS"))
+
+               //Check for Color Here
+
+               //Will Run against properties of other biotic
+               switch (tokenizer.nextToken()) {
+                  //Check the IS statement to see if true for the current otherBiotic and property.
+                  //If False, Don't add it to the new list, if true, add it to filteredBiotics
+
+                  //Example
+               }
+            else {
+               //Test about self properties
+               switch (token) {
+                  //If it is true, return the other biotic list, else return a blank list
+               }
             }
          }
       }
-      return true;
+      return filteredBiotics;
    }
 }
 

@@ -1,18 +1,114 @@
 package Game.Helper;
 
+import Game.Biotic;
+import org.jetbrains.annotations.NotNull;
+
+
 import java.util.ArrayList;
 
+/**
+ *
+ */
 public class Event {
-   ArrayList<Trigger> triggers = new ArrayList<>();
-   ACTION actions;
+   private ArrayList<Trigger> triggers = new ArrayList<>();
+   private String action;
+   private Biotic currentBiotic;
 
-   Event(){}
+
+   /**
+    * @param currentBiotic Biotic that Event object is located in
+    */
+   Event(Biotic currentBiotic){
+      this.currentBiotic = currentBiotic;
+   }
+
 
    void addTrigger(String trigger){
+      triggers.add(new Trigger(trigger));
+   }
+   public void addAction(String actionStr){
+      action = actionStr;
+   }
+
+
+   /**
+    * Tests conditions and runs the action if succeeds
+    * @param allOtherBiotics ArrayList of all Biotics
+    * @return Whether the Event ran successfully
+    */
+   public boolean run(@NotNull ArrayList<Biotic> allOtherBiotics){
+      ArrayList<Biotic> filteredBiotics;
+      filteredBiotics = allOtherBiotics;
+      for(Trigger trigger: triggers){
+         filteredBiotics = trigger.filter(currentBiotic,filteredBiotics);
+         if(filteredBiotics.size() == 0){
+            return false;
+         }
+      }
+
+      //Finds the closest Biotic if there is more than 1 in the list
+      double smallestDistance = Double.MAX_VALUE;
+      Biotic smallestDistanceBiotic = null;
+      if(filteredBiotics.size() != 1){
+         for(Biotic biotic: filteredBiotics){
+            if(biotic.distance(currentBiotic) < smallestDistance){
+                  smallestDistance = biotic.distance(currentBiotic);
+                  smallestDistanceBiotic = biotic;
+            }
+         }
+      }
+      else{
+         smallestDistanceBiotic = filteredBiotics.get(0);
+      }
+      if(smallestDistanceBiotic == null){
+         Logger.severe("ERROR! SmallestDistanceBiotic is null");
+      }
+      return runAction(action,currentBiotic,smallestDistanceBiotic);
 
    }
 
-}
-enum ACTION{
+
+   /**
+    * @param str String of action to be run
+    * @param currentBiotic Biotic that is executing action
+    * @param otherBiotic Closest Biotic chosen to execute action on if needed
+    * @return Returns whether the action has executed successfully.
+    */
+   private boolean runAction(@NotNull String str, Biotic currentBiotic,Biotic otherBiotic){
+      switch (str){
+         case "KILL":
+            break;
+         case "SPLIT":
+            break;
+         case "FOLLOW":
+            break;
+         case "RUNAWAY":
+            break;
+         case "WANDER":
+            break;
+         case "DIE":
+            break;
+         case "CONTROL":
+            break;
+         case "COLLECT":
+            break;
+         default:
+            Logger.severe("INVALID STRING in RunAction");
+
+
+
+      }
+   }
+
 
 }
+/*
+   KILL,
+   SPLIT,
+   FOLLOW,
+   RUNAWAY,
+   WANDER,
+   DIE,
+   CONTROL,
+   COLLECT
+*/
