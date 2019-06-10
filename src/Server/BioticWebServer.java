@@ -7,9 +7,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
-import java.net.InetSocketAddress;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
 
 import static java.nio.file.Files.readAllBytes;
 import static java.nio.file.Paths.get;

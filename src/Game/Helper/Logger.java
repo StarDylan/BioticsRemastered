@@ -1,4 +1,4 @@
-package Server;
+package Game.Helper;
 
 import java.util.logging.*;
 
