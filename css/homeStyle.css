@@ -21,27 +21,27 @@ body{
   murky grey: #E9E2FF*/
   border-radius: 30px;
 }
+
+
+
 .arg{
+  padding-left: 12.5%;
   margin-left: 10%;
   width: 100%;
-  height: 9%
+  height: 10%;
 }
 #trigger{
-  display: inline-block; margin-right: 70px;
+  display: inline-block;
+  margin-right: 20px;
+  size: 20px;
 }
 #action{
   display: inline-block;
+  size: 20px;
 }
-.argument{
-  padding-left: 1.5%;
-  padding-bottom: 1%;
-  width: auto;
-  height: 65%;
-  color: black;
-  font-size: 40px;
-  background-color: white;
-  border-radius: 5px;
-}
+
+
+
 #header{
   margin: 10%;
   /*padding-left: 10px;*/

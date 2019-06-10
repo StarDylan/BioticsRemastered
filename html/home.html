@@ -11,16 +11,18 @@
       <div id="header">
         <h1>Creation Mode</h1>
       </div>
-      <div class="arg">
-        <form id="trigger">
-          <label for="trigger">If</label>
-          <input type="text" id="trigger" name="trigger">
-        </form>
-        <form id="action">
-          <label for="action">Then</label>
-          <input type="text" id="action" name="action">
-        </form>
-        <button type="button" name="button" onclick="addArg()" id="addButton"></button>
+      <div id="argContainer">
+        <div class="arg">
+          <form id="trigger">
+            <label for="trigger" class="tab">If</label>
+            <input type="text" id="trigger" name="trigger">
+          </form>
+          <form id="action">
+            <label for="action">Then</label>
+            <input type="text" id="action" name="action">
+          </form>
+          <button type="button" name="button" onclick="addArg()" id="addButton">+</button>
+        </div>
       </div>
     </div>
       <div id="buttonPosition">
