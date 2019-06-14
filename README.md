@@ -65,8 +65,9 @@ The value of if and then represents the array in the JSON structure, with sepera
 
 #### Example
 The same example in Biotic Behavior JSON Structure
-```
+
+
 REQUEST HEADERS:
-	IF: "NOBIOTICNEARBY_HUNGRY BIOTICNEARBY"
-	THEN: "SEARCHFOOD ATTACK WANDER"
-```
+	IF: ``` "NOBIOTICNEARBY_HUNGRY BIOTICNEARBY"```
+	THEN: ```"SEARCHFOOD ATTACK WANDER"```
+
