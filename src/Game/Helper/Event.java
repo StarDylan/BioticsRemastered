@@ -1,7 +1,6 @@
 package Game.Helper;
 
 import Game.Biotic;
-import org.jetbrains.annotations.NotNull;
 
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class Event {
     * @param allOtherBiotics ArrayList of all Biotics
     * @return Whether the Event ran successfully
     */
-   public boolean run(@NotNull ArrayList<Biotic> allOtherBiotics){
+   public boolean run( ArrayList<Biotic> allOtherBiotics){
       ArrayList<Biotic> filteredBiotics;
       filteredBiotics = allOtherBiotics;
       for(Trigger trigger: triggers){
@@ -74,7 +73,7 @@ public class Event {
     * @param otherBiotic Closest Biotic chosen to execute action on if needed
     * @return Returns whether the action has executed successfully.
     */
-   private boolean runAction(@NotNull String str, Biotic currentBiotic,Biotic otherBiotic){
+   private boolean runAction( String str, Biotic currentBiotic,Biotic otherBiotic){
       switch (str){
          case "KILL":
             break;
@@ -87,17 +86,19 @@ public class Event {
          case "WANDER":
             break;
          case "DIE":
-            break;
+            return currentBiotic.die();
          case "CONTROL":
             break;
          case "COLLECT":
             break;
          default:
             Logger.severe("INVALID STRING in RunAction");
+            return false;
 
 
 
       }
+      return true;
    }
 
 
